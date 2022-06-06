@@ -1,0 +1,11 @@
+文件读写
+        1. 包含头文件fstream
+        2. 若写文件，则创建ofstream对象
+            如 ofstream outfile("seq_data.txt"); 以覆盖方式写文件
+            如ofstream outfile1("seq_data.txt", ios_base::app);
+            以追加模式打开,从新的一行开始
+        3. 若读文件，则创建ifstream对象
+            如ifstream outfile("seq_data.txt"); 以覆盖方式写文件
+            如ifstream outfile1("seq_data.txt", ios_base::in|ios_base::app);
+            以追加模式打开,从新的一行开始
+        

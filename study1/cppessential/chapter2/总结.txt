@@ -1,0 +1,47 @@
+2.2 
+    1--pass by reference
+        int ival = 1024
+        int *pi = ival;     // 指向一个对象
+        int &rval = ival;   // 代表一个对象
+        pi = &rval          // 相当于将ival的地址赋给了pi，pi并没有指向rval
+    我们无法令rval转而代表另外一个不同的对象jval，C++不允许我们改变reference所代表的对象
+
+    2--指针传递与引用传递的区别
+    // 引用传递，dot成员选择运算符
+    void display(const vector<int> &vec)
+    {
+        for (int ix = 0; ix < vec.size(); ix++)
+        {
+            cout << vec[ix] << " ";
+        }
+        cout << endl;
+    }
+    调用时 display( &vec );
+
+    // 指针传递，arrow成员选择运算符
+    void display(const vector<int> *vec)
+    {
+        for (int ix = 0; ix < vec->size(); ix++)
+        {
+            cout << (*vec)[ix] << " ";
+        }
+        cout << endl;
+    }
+    调用时 display( vec );
+
+    3--是否初始化
+        函数内不一定需要，全局（file）必须初始化为0
+    
+    4--动态内存管理
+        由程序的空闲空间（free store）分配而来，也称heap menmory
+        new表达式
+            int *pi;
+            pi = new int(8);  // 可以不指定初值
+            int *pia = new int[ 24 ];   // 分配数组
+            delete pi;
+            delete [] pia;      // 删除数组
+
+
+
+
+            
