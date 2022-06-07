@@ -42,6 +42,53 @@
             delete [] pia;      // 删除数组
 
 
+2.4 使用局部静态对象（local static object）
+    1.调用函数结束后，函数内的局部静态对象仍然存在
+    // 使用局部静态变量后，如果size等于或小于elem.size(),
+    // 就不必重新计算了......
+    for ( int ix = elems.size(); ix < size; ix++)
+    {
+        if (ix == 0 || ix == 1)
+            elems.push_back( 1 );
+        else 
+        elems.push_back( elems[ ix-1 ] + elems[ ix-2 ] );
+        
+    }
+    return &elems;
+
+换行符 new line
+函数重载 fuction overloading
+
+2.5 inline函数
+    面对一个inline函数，编译器可将该函数的调用操作改为以一份函数代码副本代替，可以
+    获得性能改善。
+
+2.7 定义并使用模板函数（function template）
+    template <typename elemType>
+    void display_message( const string &msg,
+                                const vector<elemType> &vec)
+    {
+        cout << msg;
+        for(int ix = 0; ix < vec.size(); ++ix)
+        {
+            elemType t = vec[ix];
+        }
+    }
+
+    编译器可以将elemType绑定为其他类型（int、string、double等）
+    vec< int/srting/double > ivec;
+    string msg;
+    display_message( msg, ivec );
+
+-enumerated type 枚举类型
+-enumerator  枚举项
+
+
+2.9 设定头文件
+    -#include "文件名.h"  使用双引号""时从该文件所在磁盘目录开始找，使用<>则从某一特定
+    磁盘目录开始找
+
+
 
 
             
